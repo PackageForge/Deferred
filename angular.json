@@ -122,6 +122,46 @@
           }
         }
       }
+    },
+    "deferred": {
+      "projectType": "library",
+      "root": "projects/deferred",
+      "sourceRoot": "projects/deferred/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/deferred/tsconfig.lib.json",
+            "project": "projects/deferred/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/deferred/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/deferred/src/test.ts",
+            "tsConfig": "projects/deferred/tsconfig.spec.json",
+            "karmaConfig": "projects/deferred/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/deferred/tsconfig.lib.json",
+              "projects/deferred/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "Deferred"
